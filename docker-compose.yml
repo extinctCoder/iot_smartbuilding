@@ -21,8 +21,6 @@ services:
     restart: unless-stopped
     ports:
       - 1883:1883
-      - 8883:8883
-      - 9001:9001
     volumes:
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/logs:/mosquitto/logs
