@@ -4,9 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+dynaconf = "3.2.1"
+iot_sb = {editable = true, path = "."}
 
 [dev-packages]
-black = "*"
+black = "23.7.0"
+setuptools = "68.1.2"
 
 [requires]
 python_version = "3.11"

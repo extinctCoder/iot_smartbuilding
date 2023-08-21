@@ -1,2 +1,5 @@
-mosquitto
+mosquitto/data
+mosquitto/logs
 otrecorder
+build
+iot_sb.egg-info
