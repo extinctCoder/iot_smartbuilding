@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 dynaconf = "3.2.1"
 iot_sb = {editable = true, path = "."}
+paho-mqtt = "*"
+mqtthandler = "*"
 
 [dev-packages]
 black = "23.7.0"

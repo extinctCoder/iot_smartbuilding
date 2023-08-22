@@ -1,19 +1,6 @@
 version: '3.7'
 
 services:
-  otrecorder_server:
-    image: owntracks/recorder:latest
-    container_name: otrecorder_server
-    hostname: otrecorder_server
-    restart: unless-stopped
-    ports:
-      - 8083:8083
-    volumes:
-      - ./otrecorder/config:/config
-      - ./otrecorder/store:/store
-    environment:
-      OTR_HOST: mosquitto_server
-
   mosquitto_server:
     image: eclipse-mosquitto
     container_name: mosquitto_server

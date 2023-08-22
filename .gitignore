@@ -3,6 +3,6 @@ mosquitto/logs
 otrecorder
 build
 iot_sb.egg-info
-
+%projects%iot_smartbuilding
 
 Pipfile.lock

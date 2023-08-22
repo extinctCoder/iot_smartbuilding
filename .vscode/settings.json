@@ -3,8 +3,11 @@
     "asctime",
     "dotenv",
     "dynaconf",
+    "keepalive",
     "levelname",
     "mqtt",
+    "mqtthandler",
+    "paho",
     "smartbuilding"
   ]
 }
