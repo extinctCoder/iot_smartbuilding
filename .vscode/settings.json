@@ -10,6 +10,7 @@
     "mqtthandler",
     "paho",
     "Pinia",
-    "smartbuilding"
+    "smartbuilding",
+    "tailwindcss"
   ]
 }
