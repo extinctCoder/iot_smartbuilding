@@ -4,13 +4,21 @@
     "asctime",
     "dotenv",
     "dynaconf",
+    "flowbite",
     "keepalive",
     "levelname",
     "mqtt",
     "mqtthandler",
+    "Neue",
+    "Noto",
     "paho",
     "Pinia",
+    "Roboto",
+    "Sabbir",
+    "Segoe",
+    "Shourov",
     "smartbuilding",
-    "tailwindcss"
+    "tailwindcss",
+    "topbar"
   ]
 }
