@@ -44,10 +44,7 @@ import User from './User.vue';
           </svg>
           <span class="sr-only">Toggle sidebar</span>
         </button>
-        <a
-          href="https://github.com/extinctcoder"
-          class="flex items-center justify-between mr-4"
-        >
+        <router-link to="/" class="flex items-center justify-between mr-4">
           <img
             src="https://flowbite.s3.amazonaws.com/logo.svg"
             class="mr-3 h-8"
@@ -57,7 +54,7 @@ import User from './User.vue';
             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
             >Smart Building</span
           >
-        </a>
+        </router-link>
         <Search></Search>
       </div>
       <div class="flex items-center lg:order-2">

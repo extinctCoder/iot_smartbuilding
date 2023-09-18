@@ -34,11 +34,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="antialiased bg-gray-50 dark:bg-gray-900">
+  <div class="antialiased">
     <Header></Header>
     <sidebar></sidebar>
     <div class="p-4 md:ml-64 h-auto pt-20">
-      <Body></Body>
+      <div id="app">
+        <router-view></router-view>
+      </div>
+
       <!-- <div class="pt-5">
         <Footer></Footer>
       </div> -->

@@ -5,6 +5,8 @@
     "dotenv",
     "dynaconf",
     "flowbite",
+    "fontawesome",
+    "fortawesome",
     "keepalive",
     "levelname",
     "mqtt",

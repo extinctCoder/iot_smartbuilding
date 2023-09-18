@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import SidebarItem from './Shared/SidebarItem.vue';
+</script>
 
 <template>
   <aside
@@ -37,8 +39,8 @@
       </form>
       <ul class="space-y-2">
         <li>
-          <a
-            href="#"
+          <router-link
+            to="/"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -52,33 +54,22 @@
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg>
             <span class="ml-3">Overview</span>
-          </a>
+          </router-link>
         </li>
       </ul>
       <ul
         class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700"
       >
         <li>
-          <button
+          <router-link
+            to="/room"
             type="button"
             class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-pages"
             data-collapse-toggle="dropdown-pages"
           >
-            <svg
-              aria-hidden="true"
-              class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span class="flex-1 ml-3 text-left whitespace-nowrap">Pages</span>
+            <font-awesome-icon :icon="['fas', 'layer-group']" />
+            <span class="flex-1 ml-3 text-left whitespace-nowrap">Rooms</span>
             <svg
               aria-hidden="true"
               class="w-6 h-6"
@@ -92,29 +83,38 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-          </button>
+          </router-link>
           <ul id="dropdown-pages" class="hidden py-2 space-y-2">
-            <li>
-              <a
-                href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Settings</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Kanban</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Calendar</a
-              >
-            </li>
+            <SidebarItem
+              title="101"
+              link_name="room_detail"
+              link_id="101"
+            ></SidebarItem>
+            <SidebarItem
+              title="102"
+              link_name="room_detail"
+              link_id="102"
+            ></SidebarItem>
+            <SidebarItem
+              title="103"
+              link_name="room_detail"
+              link_id="103"
+            ></SidebarItem>
+            <SidebarItem
+              title="201"
+              link_name="room_detail"
+              link_id="201"
+            ></SidebarItem>
+            <SidebarItem
+              title="202"
+              link_name="room_detail"
+              link_id="202"
+            ></SidebarItem>
+            <SidebarItem
+              title="203"
+              link_name="room_detail"
+              link_id="203"
+            ></SidebarItem>
           </ul>
         </li>
       </ul>
@@ -126,17 +126,7 @@
         href="https://github.com/extinctcoder"
         class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
       >
-        <svg
-          aria-hidden="true"
-          class="w-6 h-6"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"
-          ></path>
-        </svg>
+        <font-awesome-icon :icon="['fas', 'house-chimney']" />
       </a>
     </div>
   </aside>
