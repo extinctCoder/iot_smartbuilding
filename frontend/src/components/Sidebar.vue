@@ -10,7 +10,7 @@ import SearchMobile from './SearchMobile.vue';
     id="drawer-navigation"
   >
     <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
-      <!-- <SearchMobile></SearchMobile> -->
+      <SearchMobile></SearchMobile>
       <ul class="space-y-2">
         <li>
           <router-link
