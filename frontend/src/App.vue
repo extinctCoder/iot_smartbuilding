@@ -15,7 +15,6 @@ import {
 } from 'flowbite';
 import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
-import Body from './components/Body.vue';
 import Footer from './components/Footer.vue';
 
 onMounted(() => {

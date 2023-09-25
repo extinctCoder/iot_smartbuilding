@@ -9,6 +9,7 @@
     "fortawesome",
     "keepalive",
     "levelname",
+    "mosquitto",
     "mqtt",
     "mqtthandler",
     "Neue",

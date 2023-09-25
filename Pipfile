@@ -8,6 +8,7 @@ dynaconf = "3.2.1"
 iot_sb = {editable = true, path = "."}
 paho-mqtt = "*"
 mqtthandler = "*"
+websocket-client = "*"
 
 [dev-packages]
 black = "23.7.0"
