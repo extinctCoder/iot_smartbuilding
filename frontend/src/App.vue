@@ -17,6 +17,7 @@ import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
 import Body from './components/Body.vue';
 import Footer from './components/Footer.vue';
+import mqtt from 'mqtt';
 
 onMounted(() => {
   initAccordions();
@@ -30,6 +31,13 @@ onMounted(() => {
   initPopovers();
   initTabs();
   initTooltips();
+
+  let client = mqtt.connect('broker.emqx.io');
+  client.subscribe('+/+/#');
+
+  client.on('message', function (topic, message) {
+    console.log(message);
+  });
 });
 </script>
 
