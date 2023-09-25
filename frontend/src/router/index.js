@@ -1,4 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import LoginView from '../views/LoginView.vue';
+import LogoutView from '../views/LogoutView.vue';
+import ProfileView from '../views/ProfileView.vue';
+import SettingView from '../views/SettingView.vue';
+import RoomListView from '../views/RoomListView.vue';
+import RoomDetailView from '../views/RoomDetailView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,17 +13,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: import('../views/HomeView.vue'),
+      component: HomeView,
     },
     {
       path: '/login',
       name: 'login',
-      component: import('../views/LoginView.vue'),
+      component: LoginView,
     },
     {
       path: '/logout',
       name: 'logout',
-      component: import('../views/LogoutView.vue'),
+      component: LogoutView,
     },
     {
       path: '/profile',
@@ -24,7 +31,7 @@ const router = createRouter({
       redirect: (to) => {
         return { path: '/' };
       },
-      component: import('../views/ProfileView.vue'),
+      component: ProfileView,
     },
     {
       path: '/setting',
@@ -32,7 +39,7 @@ const router = createRouter({
       redirect: (to) => {
         return { path: '/' };
       },
-      component: import('../views/SettingView.vue'),
+      component: SettingView,
     },
     {
       path: '/room',
@@ -40,12 +47,12 @@ const router = createRouter({
       redirect: (to) => {
         return { path: '/' };
       },
-      component: () => import('../views/RoomListView.vue'),
+      component: RoomListView,
     },
     {
       path: '/room/:id',
       name: 'room_detail',
-      component: () => import('../views/RoomDetailView.vue'),
+      component: RoomDetailView,
     },
   ],
 });

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(['title', 'link_name', 'link_id']);
-console.log(props.link);
+// console.log(props.link);
 </script>
 
 <template>
