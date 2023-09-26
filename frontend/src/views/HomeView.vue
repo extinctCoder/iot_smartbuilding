@@ -3,12 +3,10 @@ import CardOne from '../components/Shared/CardOne.vue';
 </script>
 
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-    <CardOne title="voltage" value="220"></CardOne>
-    <CardOne title="current" value="025"></CardOne>
-    <CardOne title="power" value="025"></CardOne>
-    <CardOne title="voltage" value="025"></CardOne>
-    <button @click="send_msg">Disconnect WebSocket</button>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+    <CardOne title="voltage" chanel="l1/101/voltage"></CardOne>
+    <CardOne title="current" chanel="l1/101/current"></CardOne>
+    <CardOne title="power" chanel="l1/101/power"></CardOne>
   </div>
 </template>
 

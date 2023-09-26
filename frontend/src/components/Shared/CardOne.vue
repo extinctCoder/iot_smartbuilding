@@ -1,10 +1,10 @@
 <script setup>
-const props = defineProps(['title', 'chanel']);
-
 import { onMounted } from 'vue';
-
+import { ref } from 'vue';
 import paho from 'paho-mqtt';
 
+const props = defineProps(['title', 'chanel']);
+const network_data = ref(0);
 onMounted(() => {
   const input_steam = new paho.Client(
     '127.0.0.1',
@@ -18,7 +18,8 @@ onMounted(() => {
     input_steam.subscribe(props.chanel);
   }
   function onMessageArrived(message) {
-    console.log('onMessageArrived:' + message.payloadString);
+    network_data.value = message.payloadString;
+    console.log('onMessageArrived: ->  ' + network_data.value);
   }
 });
 </script>
@@ -29,7 +30,9 @@ onMounted(() => {
   >
     <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
       <div class="flex flex-col items-center justify-center">
-        <dt class="mb-2 text-3xl md:text-4xl font-extrabold">{{ value }}</dt>
+        <dt class="mb-2 text-3xl md:text-4xl font-extrabold">
+          {{ network_data }}
+        </dt>
         <dd class="font-light text-gray-500 dark:text-gray-400">{{ title }}</dd>
       </div>
     </div>
