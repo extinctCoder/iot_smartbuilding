@@ -1,24 +1,35 @@
 <script setup>
 import CardOne from '../components/Shared/CardOne.vue';
 
-import { defineComponent, ref } from 'vue';
-import { useWebSocketStore } from '../stores/websocketStore';
+import { onMounted, onUnmounted } from 'vue';
 
-const websocketStore = useWebSocketStore();
-const messageInput = ref('');
+import paho from 'paho-mqtt';
 
-const connectWebSocket = () => {
-  websocketStore.connect('ws://127.0.0.1:8888');
-};
+onMounted(() => {
+  const input_steam = new paho.Client(
+    '127.0.0.1',
+    8888,
+    'browser_' + Math.random().toString(16).substring(2, 8)
+  );
+  const output_steam = new paho.Client(
+    '127.0.0.1',
+    8888,
+    'browser_' + Math.random().toString(16).substring(2, 8)
+  );
+  input_steam.onMessageArrived = onMessageArrived;
+  input_steam.connect({ onSuccess: onConnect });
 
-const sendMessage = () => {
-  websocketStore.sendMessage(messageInput.value);
-  messageInput.value = '';
-};
+  function onConnect() {
+    input_steam.send('topic/ddsfsd', 'payload', 0, true);
+  }
+  function onMessageArrived(message) {
+    console.log('onMessageArrived:' + message.payloadString);
+  }
 
-const disconnectWebSocket = () => {
-  websocketStore.disconnect();
-};
+  function sendCommand() {
+    output_steam.send('topic/ddsfsd', 'payload', 0, true);
+  }
+});
 </script>
 
 <template>
@@ -27,14 +38,7 @@ const disconnectWebSocket = () => {
     <CardOne title="current" value="025"></CardOne>
     <CardOne title="power" value="025"></CardOne>
     <CardOne title="voltage" value="025"></CardOne>
-    <div>
-      <button @click="connectWebSocket">Connect WebSocket</button>
-      <button @click="sendMessage('Hello, WebSocket')">Send Message</button>
-      <!--<button @click="disconnectWebSocket">Disconnect WebSocket</button>
-    <div v-for="message in $websocket.messages" :key="message">
-      {{ message }}
-    </div> -->
-    </div>
+    <button @click="send_msg">Disconnect WebSocket</button>
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+
 export const useWebSocketStore = defineStore({
   id: 'websocket',
   state: () => ({
@@ -8,8 +9,9 @@ export const useWebSocketStore = defineStore({
   actions: {
     connect(url) {
       this.ws = new WebSocket(url);
-      this.ws.onopen = () => {
-        console.log('WebSocket connected');
+
+      this.ws.onopen = (event) => {
+        console.log('WebSocket connected', event);
       };
 
       this.ws.onmessage = (event) => {
