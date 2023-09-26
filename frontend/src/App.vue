@@ -1,5 +1,10 @@
-<script setup>
-import { onMounted } from 'vue';
+<script>
+import onMounted from 'vue';
+import AuthenticatedLayout from './layouts/AuthenticatedLayout.vue';
+import UnauthenticatedLayout from './layouts/UnauthenticatedLayout.vue'
+import Header from './components/Header.vue';
+import Sidebar from './components/Sidebar.vue';
+import Footer from './components/Footer.vue';
 import {
   initAccordions,
   initCarousels,
@@ -13,9 +18,6 @@ import {
   initTabs,
   initTooltips,
 } from 'flowbite';
-import Header from './components/Header.vue';
-import Sidebar from './components/Sidebar.vue';
-import Footer from './components/Footer.vue';
 
 onMounted(() => {
   initAccordions();
@@ -30,22 +32,26 @@ onMounted(() => {
   initTabs();
   initTooltips();
 });
+
+
+export default {
+  data() {
+    return {
+      isAuthenticated: true,
+    };
+  },
+  computed: {
+    layoutComponent() {
+      return this.isAuthenticated ? AuthenticatedLayout : UnauthenticatedLayout;
+    },
+  },
+};
 </script>
 
 <template>
-  <div class="antialiased">
-    <Header></Header>
-    <sidebar></sidebar>
-    <div class="p-4 md:ml-64 h-auto pt-20">
-      <div id="app">
-        <router-view></router-view>
-      </div>
-
-      <!-- <div class="pt-5">
-        <Footer></Footer>
-      </div> -->
-    </div>
+  <div id="app">
+    <component :is="layoutComponent"></component>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped></style> 
