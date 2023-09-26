@@ -1,5 +1,26 @@
 <script setup>
-const props = defineProps(['title', 'value']);
+const props = defineProps(['title', 'chanel']);
+
+import { onMounted } from 'vue';
+
+import paho from 'paho-mqtt';
+
+onMounted(() => {
+  const input_steam = new paho.Client(
+    '127.0.0.1',
+    8888,
+    'browser_' + Math.random().toString(16).substring(2, 8)
+  );
+
+  input_steam.onMessageArrived = onMessageArrived;
+  input_steam.connect({ onSuccess: onConnect });
+  function onConnect() {
+    input_steam.subscribe(props.chanel);
+  }
+  function onMessageArrived(message) {
+    console.log('onMessageArrived:' + message.payloadString);
+  }
+});
 </script>
 
 <template>
